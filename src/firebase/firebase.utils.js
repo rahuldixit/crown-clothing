@@ -12,6 +12,28 @@ const config = {
     measurementId: "G-LP7RW50KTF"
   };
 
+  
+  export const createUserProfileDocument= async(userAuth, additionalData) => {
+    if(!userAuth) return;
+    const user = firestore.doc(`users/${userAuth.uid}`);
+    const snapshot = await user.get();
+    if(!snapshot.exists) {
+        const {displayName, email} = userAuth;
+        const createdAt = new Date();
+        try {
+            await user.set({
+                displayName,
+                email,
+                createdAt,
+                ...additionalData
+            });
+        } catch (errp) {
+            console.log('Error creating user');
+        }
+    }
+    return user;
+  } 
+
   firebase.initializeApp(config);
   export const auth = firebase.auth();
   export const firestore = firebase.firestore();
@@ -20,4 +42,3 @@ const config = {
   provider.setCustomParameters({prompt: 'select_account'});
   export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
-  //export default firebase;

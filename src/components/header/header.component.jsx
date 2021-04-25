@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from './../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
 import CartIcon from './../cart-icon/cart-icon.component';
-import {CartDropDown} from './../cart-dropdown/cart-component.cart';
+import CartDropDown from '../cart-dropdown/cart-dropdown-component.cart';
 
 const Header = ({currentUser, hidden}) => (
     <div className='header'>

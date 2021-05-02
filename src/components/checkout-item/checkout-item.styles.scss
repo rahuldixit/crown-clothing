@@ -17,15 +17,18 @@
     }
   }
   .name,
+  .quantity,
   .price {
     width: 23%;
   }
 
   .quantity {
     display: flex;
-    .arrow{
+
+    .arrow {
       cursor: pointer;
     }
+
     .value {
       margin: 0 10px;
     }

@@ -35,6 +35,7 @@ class SignUp extends React.Component {
         password
       );
 
+      console.log('@');
       await createUserProfileDocument(user, { displayName });
 
       this.setState({
@@ -93,7 +94,7 @@ class SignUp extends React.Component {
             label='Confirm Password'
             required
           />
-          <CustomButton type='submit'>SIGN UP</CustomButton>
+          <CustomButton signIn type='submit'>SIGN UP</CustomButton>
         </form>
       </div>
     );
